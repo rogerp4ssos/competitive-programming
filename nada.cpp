@@ -1,4 +1,4 @@
-// g++ -std=c++17 -O2 -Wall a.cpp
+// g++ -std=c++17 -O2 -Wall nada.cpp
 #include <bits/stdc++.h>
  
 using namespace std;
