@@ -8,6 +8,7 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef tuple<int,int,int> tiii;
 
+#define sz(v) (int)v.size()
 #define all(v) v.begin(), v.end()
 #define INF INT_MAX
 #define MAX_N 112345
