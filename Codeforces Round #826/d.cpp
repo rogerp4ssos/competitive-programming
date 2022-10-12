@@ -13,7 +13,7 @@ typedef tuple<int,int,int> tiii;
 #define MAX_N 312345
 #define MOD ((int)1e9+7)
 
-const int K = 25;
+const int K = floor(log2(MAX_N));
 
 bool nope;
 int lg[MAX_N+1];
@@ -29,16 +29,17 @@ int get_max(int L, int R) {
     return max(sparse_max[L][j], sparse_max[R - (1 << j) + 1][j]);
 }
 
-ll get_ans(ll L, ll R) {
+int get_ans(int L, int R) {
     if (nope) return 0;
 
     if (L >= R) return 0;
 
     int mid = (L+R)/2;
-    ll min_l = get_min(L, mid);
-    ll max_l = get_max(L, mid);
-    ll min_r = get_min(mid+1, R);
-    ll max_r = get_max(mid+1, R);
+
+    int min_l = get_min(L, mid);
+    int max_l = get_max(L, mid);
+    int min_r = get_min(mid+1, R);
+    int max_r = get_max(mid+1, R);
 
     if ( !(max_r-min_r == (R-L)/2 and max_l-min_l == (R-L)/2) ) {
         nope = true;
@@ -71,7 +72,7 @@ void solve() {
     }
 
     nope = false;
-    ll ans = get_ans(0, n-1);
+    int ans = get_ans(0, n-1);
     if (nope) 
         cout << "-1\n";
     else
