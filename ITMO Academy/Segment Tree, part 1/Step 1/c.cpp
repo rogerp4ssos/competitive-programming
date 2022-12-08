@@ -34,7 +34,7 @@ typedef struct segTree {
 		sz = 1;
 		while (sz < n)
 			sz<<=1;
-		values.assign(2*sz, {0,0});
+		values.assign(2*sz, NEUTRAL_ELEMENT);
 	}
 
 	void build(vector<int> &arr, int node, int nl, int nr) {
